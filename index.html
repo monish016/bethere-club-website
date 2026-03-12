@@ -1,0 +1,1973 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BeThere Club - Real Friends. Real Places. Real Life.</title>
+  <meta name="description" content="India's first IRL social network for platonic connections. Meet verified companions for study, city exploration & career mentoring. Starting at ₹100." />
+  <meta name="keywords" content="BeThere Club, platonic friendship app India, IRL social network, verified companions, meet friends India, study partner app, city guide app, meet people in person, social companion app" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="BeThere Club — Real Friends. Real Places. Real Life." />
+  <meta property="og:description" content="India's first IRL social network for platonic connections. Meet verified companions for study sessions, city exploration, career mentoring & more." />
+  <meta property="og:url" content="https://bethere.club" />
+  <meta property="og:image" content="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6957a85b8a9e2f39eb51a399/c102cfe3d_BeThere-logo2.png" />
+  <meta property="og:site_name" content="BeThere Club" />
+  <meta property="og:locale" content="en_IN" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="BeThere Club — Real Friends. Real Places. Real Life." />
+  <meta name="twitter:description" content="India's first IRL social network for platonic connections. Meet verified companions for study, career mentoring & city exploration." />
+  <meta name="twitter:image" content="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6957a85b8a9e2f39eb51a399/c102cfe3d_BeThere-logo2.png" />
+
+  <!-- Canonical & SEO -->
+  <link rel="canonical" href="https://bethere.club/" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "BeThere Club",
+    "description": "India's first IRL social network for platonic connections. Meet verified companions for study sessions, city exploration, career mentoring and more.",
+    "url": "https://bethere.club",
+    "applicationCategory": "SocialNetworkingApplication",
+    "operatingSystem": "Android, iOS",
+    "offers": {
+      "@type": "Offer",
+      "price": "100",
+      "priceCurrency": "INR"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is BeThere a dating app?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. BeThere is built exclusively for platonic connections. Every profile explicitly states platonic intent and the platform has zero tolerance for romantic solicitation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does verification work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Every companion completes Aadhaar-based KYC through our secure verification partner. Real name, real photo, real person."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does it cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Browsing and booking is free for seekers. You only pay the companion's hourly rate starting from ₹100/hr when you confirm a meetup."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6957a85b8a9e2f39eb51a399/c102cfe3d_BeThere-logo2.png" />
+  <link rel="apple-touch-icon" href="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6957a85b8a9e2f39eb51a399/c102cfe3d_BeThere-logo2.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- GSAP for scroll animations (matching reference design) -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
+
+  <style>
+    :root {
+      --orange-500: #FF6B35;
+      --orange-600: #E85A24;
+      --orange-100: #FFF3ED;
+      --orange-50: #FFFAF7;
+      --cream: #FFF9F4;
+      --cream-dark: #F5EDE4;
+      --dark: #1A1A1A;
+      --dark-soft: #3D3D3D;
+      --gray: #6B6B6B;
+      --gray-light: #A0A0A0;
+      --white: #FFFFFF;
+      --green-badge: #22C55E;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--cream);
+      color: var(--dark);
+      font-family: "Manrope", sans-serif;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3 {
+      font-weight: 600;
+      line-height: 1.1;
+    }
+
+    h1 {
+      font-size: clamp(36px, 5.5vw, 72px);
+      letter-spacing: -2px;
+    }
+
+    h2 {
+      font-size: clamp(28px, 3.5vw, 48px);
+      letter-spacing: -1.2px;
+    }
+
+    h3 {
+      font-size: clamp(20px, 2vw, 28px);
+      letter-spacing: -0.5px;
+    }
+
+    p {
+      font-size: clamp(16px, 1.2vw, 19px);
+      font-weight: 400;
+      line-height: 1.65;
+      color: var(--dark-soft);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ==================== NAV ==================== */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 48px;
+      background: transparent;
+      border-bottom: none;
+      transition: all 0.4s ease;
+    }
+
+    nav.scrolled {
+      background: rgba(255, 249, 244, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 107, 53, 0.08);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    }
+
+    nav.scrolled .nav-logo { color: var(--dark); }
+    nav.scrolled .nav-links a { color: var(--gray); }
+    nav.scrolled .nav-links a:hover { color: var(--dark); }
+    nav.scrolled .nav-cta { background: var(--dark); color: var(--white) !important; }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--white);
+    }
+
+    .nav-logo .logo-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .nav-logo .logo-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 15px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+    }
+
+    .nav-cta {
+      background: rgba(255,255,255,0.2);
+      color: var(--white) !important;
+      padding: 10px 24px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 14px !important;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-cta:hover {
+      background: var(--orange-500);
+      transform: translateY(-1px);
+    }
+
+    /* ==================== HERO (Timeleft-style full-bleed photo) ==================== */
+    .hero {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      min-height: 100svh;
+      padding: 160px 48px 60px;
+      background: url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1920&q=80') center center / cover no-repeat;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.25) 50%, rgba(0,0,0,0.15) 100%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+      color: var(--white);
+    }
+
+    .hero h1 {
+      color: var(--white);
+      margin-bottom: 20px;
+      font-size: clamp(40px, 5.5vw, 72px);
+      line-height: 1.05;
+      letter-spacing: -2px;
+    }
+
+    .hero-sub {
+      font-size: clamp(17px, 1.4vw, 20px);
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 36px;
+      line-height: 1.6;
+      max-width: 540px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 18px 40px;
+      background: var(--orange-500);
+      color: var(--white);
+      border-radius: 50px;
+      font-size: 17px;
+      font-weight: 700;
+      font-family: "Manrope", sans-serif;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 24px rgba(255, 107, 53, 0.4);
+    }
+
+    .btn-primary:hover {
+      background: var(--orange-600);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(255, 107, 53, 0.5);
+    }
+
+    .hero .store-label {
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 12px;
+    }
+
+    /* Store badges */
+    .store-badges {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .store-badges a {
+      transition: transform 0.3s ease;
+    }
+
+    .store-badges a:hover {
+      transform: translateY(-2px);
+    }
+
+    .store-badges img {
+      height: 44px;
+      border-radius: 8px;
+    }
+
+    @keyframes float-up-down {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    /* ==================== SPOTLIGHT (matching reference layout) ==================== */
+    .spotlight {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 100px 40px;
+      gap: 80px;
+      overflow: visible;
+    }
+
+    .spotlight .section-label {
+      text-align: center;
+      font-size: 28px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: var(--orange-500);
+      margin-bottom: -20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .spotlight .row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 32px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .spotlight .row .col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .spotlight .card {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding: 32px;
+      gap: 14px;
+      border-radius: 20px;
+      background: var(--white);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
+      position: relative;
+      z-index: 2;
+    }
+
+    .spotlight .card h2 {
+      font-size: 1.4rem;
+      line-height: 1.3;
+    }
+
+    .spotlight .card p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 4px;
+    }
+
+    .card-icon.orange { background: var(--orange-100); }
+    .card-icon.green { background: #ECFDF5; }
+    .card-icon.blue { background: #EFF6FF; }
+    .card-icon.purple { background: #F5F3FF; }
+    .card-icon.red { background: #FEF2F2; }
+
+    .feature-visual {
+      border-radius: 20px;
+      overflow: hidden;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .feature-visual img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 16px;
+      box-shadow: 0 6px 30px rgba(255, 107, 53, 0.10);
+    }
+
+    /* Full-width canvas rows */
+    .spotlight .row--full {
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .feature-visual .phone-mock {
+      width: 260px;
+      height: 480px;
+      background: var(--white);
+      border-radius: 32px;
+      border: 3px solid var(--dark);
+      padding: 12px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      border-radius: 22px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .phone-screen-discover {
+      background: linear-gradient(180deg, var(--orange-500) 0%, var(--orange-600) 30%, var(--cream) 30%);
+    }
+
+    .phone-screen-discover .ph-header {
+      padding: 16px 14px 12px;
+      color: white;
+      text-align: center;
+    }
+
+    .phone-screen-discover .ph-header h4 {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .phone-screen-discover .ph-header p {
+      font-size: 9px;
+      color: rgba(255,255,255,0.8);
+      margin-top: 2px;
+    }
+
+    .phone-screen-discover .ph-pills {
+      display: flex;
+      gap: 6px;
+      padding: 8px 14px;
+      overflow: hidden;
+    }
+
+    .phone-screen-discover .ph-pill {
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 9px;
+      font-weight: 600;
+      white-space: nowrap;
+      background: var(--white);
+      color: var(--dark);
+      border: 1px solid var(--cream-dark);
+    }
+
+    .phone-screen-discover .ph-pill.active {
+      background: var(--orange-500);
+      color: white;
+      border-color: var(--orange-500);
+    }
+
+    .ph-companion-card {
+      margin: 8px 14px;
+      background: var(--white);
+      border-radius: 16px;
+      padding: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+
+    .ph-companion-card .ph-avatar {
+      width: 100%;
+      height: 100px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #FFD4BC, #FFB088);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+    }
+
+    .ph-companion-card .ph-name {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--dark);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .ph-companion-card .ph-verified {
+      font-size: 10px;
+      color: var(--green-badge);
+    }
+
+    .ph-companion-card .ph-cat {
+      font-size: 9px;
+      color: var(--gray);
+      margin-top: 2px;
+    }
+
+    .ph-companion-card .ph-price {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 8px;
+    }
+
+    .ph-companion-card .ph-price span {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--orange-500);
+    }
+
+    .ph-companion-card .ph-book {
+      font-size: 9px;
+      font-weight: 700;
+      background: var(--dark);
+      color: white;
+      padding: 5px 14px;
+      border-radius: 20px;
+    }
+
+    /* Phone mock for groups */
+    .phone-screen-groups {
+      background: linear-gradient(180deg, #FFA768 0%, #FF8C42 30%, var(--cream) 30%);
+    }
+
+    .phone-screen-groups .ph-header {
+      padding: 16px 14px 12px;
+      color: white;
+      text-align: center;
+    }
+
+    .phone-screen-groups .ph-header h4 {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .phone-screen-groups .ph-header p {
+      font-size: 8px;
+      color: rgba(255,255,255,0.8);
+      margin-top: 2px;
+    }
+
+    .ph-event-card {
+      margin: 12px 14px 8px;
+      background: var(--white);
+      border-radius: 16px;
+      padding: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+
+    .ph-event-card .ph-event-img {
+      width: 100%;
+      height: 70px;
+      border-radius: 10px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+
+    .ph-event-card .ph-event-img.cafe { background: linear-gradient(135deg, #D4A574, #C8956E); }
+    .ph-event-card .ph-event-img.park { background: linear-gradient(135deg, #7BC47F, #5DAD61); }
+
+    .ph-event-card .ph-event-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .ph-event-card .ph-event-meta {
+      font-size: 9px;
+      color: var(--gray);
+      margin-top: 2px;
+    }
+
+    .ph-event-card .ph-event-join {
+      margin-top: 8px;
+      width: 100%;
+      text-align: center;
+      font-size: 9px;
+      font-weight: 700;
+      background: var(--orange-500);
+      color: white;
+      padding: 6px;
+      border-radius: 20px;
+    }
+
+    /* Phone mock for safety */
+    .phone-screen-safety {
+      background: var(--cream);
+      padding: 16px 14px;
+    }
+
+    .phone-screen-safety .safety-header {
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .phone-screen-safety .safety-header h4 {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .safety-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      background: var(--white);
+      border-radius: 12px;
+      margin-bottom: 8px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+    }
+
+    .safety-item .si-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .safety-item .si-icon.green { background: #ECFDF5; }
+    .safety-item .si-icon.blue { background: #EFF6FF; }
+    .safety-item .si-icon.orange { background: var(--orange-100); }
+    .safety-item .si-icon.red { background: #FEF2F2; }
+
+    .safety-item .si-text h5 {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .safety-item .si-text p {
+      font-size: 8px;
+      color: var(--gray);
+      line-height: 1.3;
+    }
+
+    /* SVG path animation */
+    .spotlight .svg-path {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .spotlight .svg-path svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* ==================== HOW IT WORKS ==================== */
+    .how-it-works {
+      padding: 120px 48px;
+      text-align: center;
+      background: var(--white);
+    }
+
+    .how-it-works .section-label {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--orange-500);
+      margin-bottom: 16px;
+    }
+
+    .how-it-works h2 {
+      max-width: 600px;
+      margin: 0 auto 64px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 16px;
+      position: relative;
+    }
+
+    .step-num {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--orange-100);
+      color: var(--orange-500);
+      font-size: 22px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Connector line between steps */
+    .step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: calc(50% + 36px);
+      width: calc(100% - 44px);
+      height: 2px;
+      background: var(--orange-500);
+      opacity: 0.3;
+    }
+
+    .step h3 {
+      font-size: 18px;
+    }
+
+    .step p {
+      font-size: 15px;
+      color: var(--gray);
+    }
+
+    /* ==================== CATEGORIES ==================== */
+    .categories {
+      padding: 120px 48px;
+      background: var(--cream);
+    }
+
+    .categories .section-label {
+      text-align: center;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--orange-500);
+      margin-bottom: 16px;
+    }
+
+    .categories h2 {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 64px;
+    }
+
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .cat-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 36px 28px;
+      text-align: center;
+      border: 1px solid rgba(0,0,0,0.04);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .cat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(255, 107, 53, 0.1);
+      border-color: rgba(255, 107, 53, 0.2);
+    }
+
+    .cat-card .cat-emoji {
+      font-size: 48px;
+      margin-bottom: 16px;
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: auto;
+      margin-right: auto;
+      background: var(--orange-100);
+      border-radius: 20px;
+    }
+
+    .cat-card h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .cat-card p {
+      font-size: 14px;
+      color: var(--gray);
+    }
+
+    .cat-card .cat-price {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 6px 16px;
+      border-radius: 20px;
+      background: var(--orange-100);
+      color: var(--orange-500);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* ==================== COMPARISON ==================== */
+    .comparison {
+      padding: 120px 48px;
+      background: var(--white);
+    }
+
+    .comparison .section-label {
+      text-align: center;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--orange-500);
+      margin-bottom: 16px;
+    }
+
+    .comparison h2 {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 64px;
+    }
+
+    .comp-table {
+      max-width: 900px;
+      margin: 0 auto;
+      border-radius: 20px;
+      overflow: hidden;
+      background: var(--cream);
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .comp-row {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      padding: 0;
+    }
+
+    .comp-row.header {
+      background: var(--dark);
+      color: var(--white);
+    }
+
+    .comp-cell {
+      padding: 18px 24px;
+      font-size: 15px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .comp-row.header .comp-cell {
+      font-weight: 700;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-bottom: none;
+    }
+
+    .comp-cell.feature {
+      color: var(--dark-soft);
+    }
+
+    .comp-cell.yes {
+      color: var(--green-badge);
+      font-weight: 700;
+    }
+
+    .comp-cell.no {
+      color: var(--gray-light);
+    }
+
+    .comp-cell.bethere {
+      background: rgba(255, 107, 53, 0.04);
+    }
+
+    /* ==================== TRUST BANNER ==================== */
+    .trust-banner {
+      padding: 100px 48px;
+      background: var(--dark);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .trust-banner h2 {
+      color: var(--white);
+      max-width: 700px;
+      margin: 0 auto 24px;
+    }
+
+    .trust-banner p {
+      color: var(--gray-light);
+      max-width: 500px;
+      margin: 0 auto 48px;
+      font-size: 18px;
+    }
+
+    .trust-stats {
+      display: flex;
+      justify-content: center;
+      gap: 64px;
+      margin-bottom: 48px;
+    }
+
+    .trust-stat {
+      text-align: center;
+    }
+
+    .trust-stat .ts-num {
+      font-size: 48px;
+      font-weight: 800;
+      color: var(--orange-500);
+    }
+
+    .trust-stat .ts-label {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gray-light);
+      margin-top: 4px;
+    }
+
+    /* ==================== FAQ ==================== */
+    .faq {
+      padding: 120px 48px;
+      background: var(--cream);
+    }
+
+    .faq .section-label {
+      text-align: center;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--orange-500);
+      margin-bottom: 16px;
+    }
+
+    .faq h2 {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .faq-list {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .faq-item {
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.04);
+      transition: all 0.3s ease;
+    }
+
+    .faq-item:hover {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    }
+
+    .faq-q {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 28px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--dark);
+      user-select: none;
+    }
+
+    .faq-q .faq-toggle {
+      font-size: 22px;
+      color: var(--orange-500);
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+      margin-left: 16px;
+    }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+    }
+
+    .faq-a .faq-a-inner {
+      padding: 0 28px 20px;
+      font-size: 15px;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    .faq-item.open .faq-toggle {
+      transform: rotate(45deg);
+    }
+
+    .faq-item.open .faq-a {
+      max-height: 300px;
+    }
+
+    /* ==================== PRESS MARQUEE ==================== */
+    .press-marquee {
+      padding: 40px 0;
+      overflow: hidden;
+      background: var(--white);
+      border-top: 1px solid rgba(0,0,0,0.04);
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .press-marquee p {
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--gray);
+      margin-bottom: 24px;
+    }
+
+    .marquee-track {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      animation: marquee-scroll 25s linear infinite;
+      width: max-content;
+    }
+
+    .marquee-track span {
+      font-size: 22px;
+      font-weight: 800;
+      color: #bbb;
+      white-space: nowrap;
+      letter-spacing: 1px;
+    }
+
+    @keyframes marquee-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ==================== TESTIMONIALS ==================== */
+    .testimonials {
+      padding: 100px 48px;
+      background: var(--cream);
+      text-align: center;
+    }
+
+    .testimonials .section-label {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--orange-500);
+      margin-bottom: 12px;
+    }
+
+    .testimonials h2 {
+      font-size: clamp(28px, 3vw, 40px);
+      font-weight: 800;
+      margin-bottom: 60px;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 32px 28px;
+      text-align: left;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+      border: 1px solid rgba(0,0,0,0.04);
+      transition: transform 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .testimonial-stars {
+      color: #f5a623;
+      font-size: 18px;
+      margin-bottom: 16px;
+    }
+
+    .testimonial-card blockquote {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--dark);
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .testimonial-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--orange-500), var(--orange-600));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .testimonial-author .name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .testimonial-author .role {
+      font-size: 12px;
+      color: var(--gray);
+    }
+
+    /* ==================== FINAL CTA ==================== */
+    .final-cta {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 70svh;
+      padding: 60px 48px;
+      margin: 0;
+      text-align: center;
+      background: linear-gradient(135deg, var(--orange-500) 0%, var(--orange-600) 100%);
+      overflow: hidden;
+      color: var(--white);
+    }
+
+    .final-cta h2 {
+      max-width: 800px;
+      margin-bottom: 24px;
+      color: var(--white);
+      font-size: clamp(36px, 5.5vw, 72px);
+      letter-spacing: -2px;
+    }
+
+    .final-cta h2 .highlight {
+      color: #FFD700;
+    }
+
+    .final-cta h2 .highlight::after {
+      background: rgba(255, 215, 0, 0.3);
+    }
+
+    .final-cta p {
+      max-width: 540px;
+      font-size: 18px;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
+    .final-cta .btn-primary {
+      background: var(--white);
+      color: var(--orange-500);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+    }
+
+    .final-cta .btn-primary:hover {
+      background: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    }
+
+    .final-cta .store-badges img {
+      height: 44px;
+      opacity: 1;
+    }
+
+    .final-cta .store-badges img:hover {
+      transform: scale(1.05);
+    }
+
+    .final-cta-shapes {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .final-cta-shapes div {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .final-cta-shapes .s1 { width: 400px; height: 400px; top: -120px; right: -80px; animation: float-up-down 7s ease-in-out infinite; }
+    .final-cta-shapes .s2 { width: 250px; height: 250px; bottom: -60px; left: -40px; animation: float-up-down 9s ease-in-out infinite 1.5s; }
+    .final-cta-shapes .s3 { width: 120px; height: 120px; top: 40%; left: 15%; animation: float-up-down 6s ease-in-out infinite 3s; }
+
+    /* ==================== FOOTER ==================== */
+    footer {
+      padding: 64px 48px 32px;
+      background: var(--dark);
+      color: var(--gray-light);
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 48px;
+      gap: 48px;
+    }
+
+    .footer-brand .footer-logo {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-brand .footer-logo img {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .footer-brand p {
+      font-size: 14px;
+      color: var(--gray-light);
+      max-width: 300px;
+      line-height: 1.6;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 64px;
+    }
+
+    .footer-col h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .footer-col a {
+      display: block;
+      font-size: 14px;
+      color: var(--gray-light);
+      margin-bottom: 10px;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover {
+      color: var(--orange-500);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+    }
+
+    .footer-bottom a {
+      color: var(--gray-light);
+      margin-left: 24px;
+      transition: color 0.2s;
+    }
+
+    .footer-bottom a:hover {
+      color: var(--orange-500);
+    }
+
+    /* ==================== MOBILE ==================== */
+    @media (max-width: 1000px) {
+      nav { padding: 12px 24px; }
+      .nav-links { display: none; }
+
+      .hero { padding: 120px 24px 40px; align-items: flex-end; }
+      .hero h1 { font-size: 36px; letter-spacing: -1px; }
+      .hero-ctas { flex-direction: column; }
+      .store-badges img { height: 38px; }
+
+      .spotlight { padding: 60px 20px; gap: 48px; }
+      .spotlight .row { flex-direction: column; gap: 20px; }
+      .spotlight .row--full { max-width: 100%; }
+      .spotlight .card { padding: 24px 20px; }
+      .spotlight .card h2 { font-size: 1.2rem; }
+      .spotlight .svg-path { display: none; }
+
+      .how-it-works { padding: 80px 24px; }
+      .steps { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .step::after { display: none; }
+
+      .categories { padding: 80px 24px; }
+      .cat-grid { grid-template-columns: 1fr 1fr; }
+
+      .comparison { padding: 80px 24px; }
+      .comp-cell { padding: 12px 16px; font-size: 13px; }
+
+      .trust-banner { padding: 80px 24px; }
+      .trust-stats { flex-direction: column; gap: 32px; }
+
+      .testimonials { padding: 60px 20px; }
+      .testimonial-grid { grid-template-columns: 1fr; gap: 20px; }
+      .final-cta { padding: 80px 24px; }
+
+      .faq { padding: 80px 24px; }
+      .final-cta { padding: 80px 24px; min-height: 50svh; }
+
+      footer { padding: 48px 24px 24px; }
+      .footer-top { flex-direction: column; }
+      .footer-links { flex-direction: column; gap: 32px; }
+    }
+
+    @media (max-width: 600px) {
+      .steps { grid-template-columns: 1fr; }
+      .step:not(:last-child)::after { display: none; }
+      .cat-grid { grid-template-columns: 1fr; }
+      .comp-row { grid-template-columns: 1.5fr 1fr 1fr; }
+      .comp-cell { padding: 10px 12px; font-size: 12px; }
+    }
+
+    /* ==================== ANIMATIONS ==================== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ========== NAV ========== -->
+  <nav>
+    <a href="#" class="nav-logo">
+      <div class="logo-icon"><img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6957a85b8a9e2f39eb51a399/c102cfe3d_BeThere-logo2.png" alt="BeThere mascot" /></div>
+      BeThere
+    </a>
+    <ul class="nav-links">
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#categories">Categories</a></li>
+      <li><a href="#safety">Safety</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="https://blog.bethere.club" target="_blank">Blog</a></li>
+      <li><a href="https://app.bethere.club" class="nav-cta">Open App</a></li>
+    </ul>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>The meetups turning strangers into real friends.</h1>
+
+      <p class="hero-sub">
+        No bios. No swiping. No planning. We match you with verified companions at curated venues. All you need to do is show up.
+      </p>
+
+      <div class="hero-ctas">
+        <a href="https://app.bethere.club" class="btn-primary">
+          Find Your Companion &rarr;
+        </a>
+      </div>
+
+      <p class="store-label">or download our app</p>
+      <div class="store-badges">
+        <a href="https://apps.apple.com/app/bethere-club" target="_blank" rel="noopener">
+          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" />
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.bethere.club" target="_blank" rel="noopener">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SPOTLIGHT: FEATURES (canvas scroll animation) ========== -->
+  <section class="spotlight">
+    <p class="section-label">Why BeThere</p>
+
+    <!-- Canvas 2: Meet IRL — Card + Image -->
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-icon orange">&#127774;</div>
+          <h2>Meet IRL, not just online</h2>
+          <p>
+            Every connection on BeThere leads to a real meetup at a verified venue. No endless chats, no maybe-someday plans. Just show up.
+          </p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="feature-visual">
+          <img loading="lazy" src="canvas/canvas_02_meet_irl.png" alt="Two people meeting happily at a cafe" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Canvas 3: Every Face is Verified — Image + Card -->
+    <div class="row">
+      <div class="col">
+        <div class="feature-visual">
+          <img loading="lazy" src="canvas/canvas_03_verified_faces.png" alt="Verified people with trust badges" />
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-icon green">&#128737;</div>
+          <h2>Every face is verified</h2>
+          <p>
+            Every companion is verified with government ID. You always know exactly who you're meeting before you leave your house.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Canvas 4: Purely Platonic — Card + Image -->
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-icon purple">&#129309;</div>
+          <h2>Purely platonic, always clear</h2>
+          <p>
+            BeThere is strictly for friendship. Study buddies, hiking partners, career mentors. No dating, no confusion, just good company.
+          </p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="feature-visual">
+          <img loading="lazy" src="canvas/canvas_04_purely_platonic.png" alt="Friends at cafe, hiking, and studying together" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Canvas 5: Curated Venues — Image + Card -->
+    <div class="row">
+      <div class="col">
+        <div class="feature-visual">
+          <img loading="lazy" src="canvas/canvas_05_curated_venues.png" alt="Curated city map with venue pins" />
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-icon orange">&#128205;</div>
+          <h2>Curated venues & activities</h2>
+          <p>
+            Every meetup happens at a hand-picked public venue like cafes, parks, or libraries. Safe, comfortable, and actually fun.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Canvas 6: Commitment, Not Ghosting — Card + Image -->
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-icon blue">&#9200;</div>
+          <h2>Commitment, not ghosting</h2>
+          <p>
+            Payments are held in escrow and both sides check in at the venue. When someone says they'll be there, they actually show up.
+          </p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="feature-visual">
+          <img loading="lazy" src="canvas/canvas_06_commitment.png" alt="Two people arriving on time at meetup" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Canvas 7: Safe & Secure Meetups — Image + Card -->
+    <div class="row">
+      <div class="col">
+        <div class="feature-visual">
+          <img loading="lazy" src="canvas/canvas_07_safe_secure.png" alt="Safe meetup venue with protective shield" />
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-icon red">&#128737;</div>
+          <h2>Safe & secure meetups</h2>
+          <p>
+            Every meetup has live check-ins, SOS support, and real accountability. Built safety-first so you can just focus on connecting.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Animated SVG path weaving through all rows -->
+    <div class="svg-path">
+      <svg viewBox="0 0 1000 5000" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path id="stroke-path"
+          d="M500 0
+             C500 100 150 200 150 400
+             C150 600 850 500 850 750
+             C850 1000 100 900 100 1200
+             C100 1500 900 1350 900 1650
+             C900 1950 50 1800 100 2100
+             C150 2400 850 2300 850 2600
+             C850 2900 150 2800 150 3100
+             C150 3400 900 3300 850 3600
+             C800 3900 100 3800 150 4100
+             C200 4400 850 4300 800 4600
+             C750 4800 500 4900 500 5000"
+          stroke="#FF6B35" stroke-width="80" stroke-linecap="round" fill="none" opacity="0.2" />
+      </svg>
+    </div>
+  </section>
+
+  <!-- ========== HOW IT WORKS ========== -->
+  <section class="how-it-works" id="how">
+    <p class="section-label">How It Works</p>
+    <h2>From zero to hangout in four taps</h2>
+
+    <div class="steps">
+      <div class="step fade-up">
+        <div class="step-num">1</div>
+        <h3>Browse</h3>
+        <p>Explore verified companions by category: study partner, city guide, career mentor, or social companion.</p>
+      </div>
+      <div class="step fade-up">
+        <div class="step-num">2</div>
+        <h3>Book</h3>
+        <p>Pick a time, choose a verified public venue, and confirm your session. Payments are held in escrow.</p>
+      </div>
+      <div class="step fade-up">
+        <div class="step-num">3</div>
+        <h3>Meet</h3>
+        <p>Show up at the venue. Both parties check in with a selfie. Real connection starts here.</p>
+      </div>
+      <div class="step fade-up">
+        <div class="step-num">4</div>
+        <h3>Rate</h3>
+        <p>Leave an honest review. Build trust scores for the community. Companions get paid instantly.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CATEGORIES ========== -->
+  <section class="categories" id="categories">
+    <p class="section-label">Companion Categories</p>
+    <h2>Find exactly who you need</h2>
+
+    <div class="cat-grid">
+      <div class="cat-card fade-up">
+        <div class="cat-emoji">&#128218;</div>
+        <h3>Study Partner</h3>
+        <p>Ace exams together at a library or cafe. Accountability meets good company.</p>
+        <div class="cat-price">From &#8377;100/hr</div>
+      </div>
+      <div class="cat-card fade-up">
+        <div class="cat-emoji">&#128188;</div>
+        <h3>Career Mentor</h3>
+        <p>Get real-world guidance from someone who's been there. Industry insights over coffee.</p>
+        <div class="cat-price">From &#8377;200/hr</div>
+      </div>
+      <div class="cat-card fade-up">
+        <div class="cat-emoji">&#127751;</div>
+        <h3>City Guide</h3>
+        <p>New to town? Explore the best spots with a local who actually knows the city.</p>
+        <div class="cat-price">From &#8377;150/hr</div>
+      </div>
+      <div class="cat-card fade-up">
+        <div class="cat-emoji">&#9749;</div>
+        <h3>Social Companion</h3>
+        <p>Need someone to grab lunch with, attend an event, or just have a genuine conversation.</p>
+        <div class="cat-price">From &#8377;100/hr</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== COMPARISON ========== -->
+  <section class="comparison" id="safety">
+    <p class="section-label">Why We're Different</p>
+    <h2>Not another chat app. The real thing.</h2>
+
+    <div class="comp-table">
+      <div class="comp-row header">
+        <div class="comp-cell">Feature</div>
+        <div class="comp-cell bethere">BeThere</div>
+        <div class="comp-cell">Others</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell feature">In-person meetups (IRL)</div>
+        <div class="comp-cell bethere yes">&#10003; Core feature</div>
+        <div class="comp-cell no">&#10007; Online only</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell feature">KYC identity verification</div>
+        <div class="comp-cell bethere yes">&#10003; Government ID</div>
+        <div class="comp-cell no">&#10007; Basic or none</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell feature">Verified public venues</div>
+        <div class="comp-cell bethere yes">&#10003; Curated spaces</div>
+        <div class="comp-cell no">&#10007; No venues</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell feature">Strictly platonic</div>
+        <div class="comp-cell bethere yes">&#10003; By design</div>
+        <div class="comp-cell no">~ Mixed intent</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell feature">Live meetup tracking</div>
+        <div class="comp-cell bethere yes">&#10003; Location + selfie</div>
+        <div class="comp-cell no">&#10007; None</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell feature">Escrow payments</div>
+        <div class="comp-cell bethere yes">&#10003; Protected</div>
+        <div class="comp-cell no">&#10007; Tips or free</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-cell feature">Dispute resolution</div>
+        <div class="comp-cell bethere yes">&#10003; Built-in</div>
+        <div class="comp-cell no">&#10007; Report only</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TRUST BANNER ========== -->
+  <section class="trust-banner">
+    <h2>Built on trust. Designed for India.</h2>
+    <p>Every interaction on BeThere is backed by verification, transparency, and real accountability.</p>
+
+    <div class="trust-stats">
+      <div class="trust-stat">
+        <div class="ts-num">7%</div>
+        <div class="ts-label">Platform Fee Only</div>
+      </div>
+      <div class="trust-stat">
+        <div class="ts-num">100%</div>
+        <div class="ts-label">No-Show Protection</div>
+      </div>
+      <div class="trust-stat">
+        <div class="ts-num">0%</div>
+        <div class="ts-label">Tolerance for Misconduct</div>
+      </div>
+    </div>
+
+    <a href="https://app.bethere.club" class="btn-primary">
+      Join BeThere Today &rarr;
+    </a>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="faq" id="faq">
+    <p class="section-label">Questions</p>
+    <h2>Frequently Asked</h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">
+          Is BeThere a dating app?
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            Absolutely not. BeThere is designed exclusively for platonic connections. Every feature, from companion categories to venue selection, is built to foster friendship, mentoring, and social companionship. No dating. No ambiguity.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          How are companions verified?
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            Every companion undergoes KYC verification with a government-issued ID before they can be listed on the platform. We also require selfie verification during meetups and maintain a review-based trust score system.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          What happens if someone doesn't show up?
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            We have a 100% no-show penalty policy. Payments are held in escrow until both parties check in at the venue. If someone doesn't show, you get a full refund and the no-show gets flagged on their profile.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          How much does it cost?
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            Companion rates start from &#8377;100/hr and vary by category and experience. BeThere charges a flat 7% platform fee. All prices are shown upfront before you book. No hidden charges, ever.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          Which cities is BeThere available in?
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            We're currently in beta and launching in Chennai and Bangalore first. We're rapidly expanding to more Indian cities. Sign up to be notified when we're in your city.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          Can I become a companion?
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            Yes! You can switch between Seeker and Companion roles right from your profile. Complete your KYC verification, set your categories and rates, and start accepting bookings. It's a great way to earn while making genuine connections.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FINAL CTA (matching reference outro) ========== -->
+  <section class="final-cta">
+    <div class="final-cta-shapes">
+      <div class="s1"></div>
+      <div class="s2"></div>
+      <div class="s3"></div>
+    </div>
+
+    <h2>Your next real<br>connection is <span class="highlight">one tap away</span>.</h2>
+    <p>
+      Stop swiping through strangers. Start meeting verified people at real places. BeThere exists because loneliness can't be solved through a screen.
+    </p>
+    <div class="hero-ctas">
+      <a href="https://app.bethere.club" class="btn-primary">
+        Get Started Free &rarr;
+      </a>
+    </div>
+    <div class="store-badges" style="margin-top: 24px;">
+      <a href="https://play.google.com/store/apps/details?id=com.bethere.club" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" />
+      </a>
+      <a href="https://apps.apple.com/app/bethere-club" target="_blank" rel="noopener">
+        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" />
+      </a>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo"><img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6957a85b8a9e2f39eb51a399/c102cfe3d_BeThere-logo2.png" alt="BeThere mascot" /> BeThere Club</div>
+        <p>India's first IRL social network for platonic connections. Real friends. Real places. Real life.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="#how">How It Works</a>
+          <a href="#categories">Categories</a>
+          <a href="#safety">Safety</a>
+          <a href="#faq">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#">About Us</a>
+          <a href="#">Careers</a>
+          <a href="#">Blog</a>
+          <a href="#">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-of-use.html">Terms of Use</a>
+          <a href="community-guidelines.html">Community Guidelines</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Teckas Technologies. All rights reserved.</span>
+      <div>
+        <a href="#">Instagram</a>
+        <a href="#">Twitter</a>
+        <a href="#">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== SCRIPTS ========== -->
+  <script>
+    // Register GSAP ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Animated SVG path draw
+    document.addEventListener('DOMContentLoaded', () => {
+      const path = document.getElementById('stroke-path');
+      if (path) {
+        const pathLength = path.getTotalLength();
+        path.style.strokeDasharray = pathLength;
+        path.style.strokeDashoffset = pathLength;
+
+        gsap.to(path, {
+          strokeDashoffset: 0,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '.spotlight',
+            start: 'top 80%',
+            end: 'bottom 10%',
+            scrub: 1.5,
+          },
+        });
+      }
+
+      // Fade-up animations for cards and steps
+      gsap.utils.toArray('.fade-up').forEach((el) => {
+        gsap.fromTo(el,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1, y: 0, duration: 0.8, ease: 'power2.out',
+            scrollTrigger: {
+              trigger: el,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+            },
+          }
+        );
+      });
+
+      // Fade-up for each row in spotlight — stagger card and image within each row
+      gsap.utils.toArray('.spotlight .row').forEach((row) => {
+        const children = row.querySelectorAll('.card, .feature-visual');
+        gsap.fromTo(children,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1, y: 0, duration: 0.8, ease: 'power2.out',
+            stagger: 0.15,
+            scrollTrigger: {
+              trigger: row,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+            },
+          }
+        );
+      });
+
+      // FAQ accordion
+      document.querySelectorAll('.faq-q').forEach((q) => {
+        q.addEventListener('click', () => {
+          const item = q.parentElement;
+          const wasOpen = item.classList.contains('open');
+
+          // Close all others
+          document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+
+          // Toggle clicked
+          if (!wasOpen) item.classList.add('open');
+        });
+      });
+
+      // Nav scroll effect — transparent over hero, solid after scroll
+      const nav = document.querySelector('nav');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 80) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
